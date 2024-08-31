@@ -2,71 +2,86 @@
 <html>
 
 <head>
-  <title>Solar System</title>
+    <title>Solar System</title>
 
-  <style> 
-  
-    .carousel {
-      width: 100px;
-      height: 100px;
-      position: relative;
-      overflow: hidden;
-      border: solid black 5px;
-    }
+    <style> 
 
-    .previous, .next {
-      position: absolute;
-      top: 50%;
-      background-color: black;
-      color: white;
-      padding: 3px;
-      font-size: 20px;
-      transform: translateY(-50%);
-      cursor: pointer;
-    }
+        .carousel {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border: solid black 5px;
+        }
 
-    .previous {
-      left: 0;
-    }
+        .carousel-item {
+            position: relative; 
+            display: none;
+        }
 
-    .next {
-      right: 0;
-    }
+        .previous, .next {
+            position: absolute;
+            top: 50%;
+            background-color: black;
+            color: white;
+            padding: 3px;
+            font-size: 20px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
 
-    body {
-      display: flex; 
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+        .previous {
+            left: 0;
+        }
 
-      img {
-          z-index: 1;
-      }
+        .next {
+            right: 0;
+        }
 
-    .tooltip {
-      background-color: white;
-      position: absolute;
-      display: flex;
-      z-index: 3;
-    }
+        body {
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .tooltip .tooltip-text {
-      visibility: none;
-    }
+        .tooltip {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+        }
 
-    .tooltip:hover .tooltip-text {
-      visibility: block;
-    }
+        .tooltip img {
+            display: block;
+        }
 
-    .carousel-item {
-        position: absolute;
-    }
+        .tooltip-text {
+            visibility: hidden;
+            color: white;
+        }
 
-    
-  </style>
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+        }
 
-  
+        .tooltip.name {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .tooltip.moon {
+            bottom: 10px; 
+            left: 50%; 
+            transform: translateX(-50%);
+        }
+
+        .tooltip.sun {
+            bottom: 10px; 
+            right: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -77,10 +92,10 @@
 
     <div class = "carousel-item">
 
-      <img src = "earth .jpeg" width = 100px height = 100px alt = "Earth">
+      <img src = "earth .jpeg" width = 300px height = 300px alt = "Earth">
 
       <div class = "tooltip name">
-        <img src = "earth.jpeg" width = 50px height = 50px>
+        <img src = "earth .jpeg" width = 50px height = 50px>
         <p class = "tooltip-text">
           Earth
         </p>
@@ -99,12 +114,12 @@
           151.12 million km   
         </p>
       </div>
-            
+
     </div>
 
     <div class = "carousel-item">
-            
-      <img src = "mercury.webp" width = 100px height = 100px alt = "Mercury">
+
+      <img src = "mercury.webp" width = 300px height = 300px alt = "Mercury">
 
       <div class = "tooltip name">
         <img src = "mercury.webp" width = 50px height = 50px>
@@ -131,7 +146,7 @@
 
     <div class = "carousel-item">
 
-      <img src = "venus.jpeg" width = 100px height = 100px alt = "Venus">
+      <img src = "venus.jpeg" width = 300px height = 300px alt = "Venus">
 
       <div class = "tooltip name">
         <img src = "venus.jpeg" width = 50px height = 50px>
@@ -158,7 +173,7 @@
 
     <div class = "carousel-item">
 
-        <img src = "mars.png" width = 100px height = 100px alt = "Mars">
+        <img src = "mars.png" width = 300px height = 300px alt = "Mars">
 
         <div class = "tooltip name">
             <img src = "mars.png" width = 50px height = 50px>
@@ -185,7 +200,7 @@
 
       <div class = "carousel-item">
 
-          <img src = "jupiter.jpg" width = 100px height = 100px alt = "Jupiter">
+          <img src = "jupiter.jpg" width = 300px height = 300px alt = "Jupiter">
 
           <div class = "tooltip name">
               <img src = "jupiter.jpg" width = 50px height = 50px>
@@ -212,7 +227,7 @@
 
       <div class = "carousel-item">
 
-          <img src = "saturn.jpg" width = 100px height = 100px alt = "Saturn">
+          <img src = "saturn.jpg" width = 300px height = 300px alt = "Saturn">
 
           <div class = "tooltip name">
               <img src = "saturn.jpg" width = 50px height = 50px>
@@ -239,8 +254,8 @@
 
       <div class = "carousel-item">
 
-          <img src = "uranus.jpeg" width = 100px height = 100px alt = "Uranus">
-          
+          <img src = "uranus.jpeg" width = 300px height = 300px alt = "Uranus">
+
           <div class = "tooltip name">
               <img src = "uranus.jpeg" width = 50px height = 50px>
               <p class = "tooltip-text">
@@ -266,7 +281,7 @@
 
       <div class = "carousel-item">
 
-          <img src = "neptune.jpg" width = 100px height = 100px alt = "Neptune">
+          <img src = "neptune.jpg" width = 300px height = 300px alt = "Neptune">
 
           <div class = "tooltip name">
               <img src = "neptune.jpg" width = 50px height = 50px>
@@ -302,7 +317,7 @@
 
         function change_image(amount) {
             index += amount;
-        
+
 
             if (index < 0) {
                 index = images.length - 1;
@@ -318,7 +333,7 @@
                 }
             }
         }
-        
+
         change_image (0);
     </script>
 
